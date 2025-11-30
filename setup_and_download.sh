@@ -19,9 +19,9 @@ echo "Step 1: Installing required tools..."
 echo "--------------------------------------"
 
 # Install SRA Toolkit
-if [ ! -d "$HOME/sratoolkit.3.0.0-ubuntu64" ]; then
+if [ ! -d "${SLURM_SUBMIT_DIR}/sratoolkit.3.0.0-ubuntu64" ]; then
     echo "Installing SRA Toolkit..."
-    cd ~
+    cd ${SLURM_SUBMIT_DIR}
     wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.0/sratoolkit.3.0.0-ubuntu64.tar.gz
     tar -xzf sratoolkit.3.0.0-ubuntu64.tar.gz
     rm sratoolkit.3.0.0-ubuntu64.tar.gz
@@ -31,9 +31,9 @@ else
 fi
 
 # Install seqtk
-if [ ! -d "$HOME/seqtk" ]; then
+if [ ! -d "${SLURM_SUBMIT_DIR}/seqtk" ]; then
     echo "Installing seqtk..."
-    cd ~
+    cd ${SLURM_SUBMIT_DIR}
     git clone https://github.com/lh3/seqtk.git
     cd seqtk
     make
@@ -42,7 +42,7 @@ else
     echo "seqtk already installed"
 fi
 
-export PATH=$PATH:~/sratoolkit.3.0.0-ubuntu64/bin:~/seqtk
+export PATH=$PATH:${SLURM_SUBMIT_DIR}/sratoolkit.3.0.0-ubuntu64/bin:${SLURM_SUBMIT_DIR}/seqtk
 
 # ============================================================================
 # 2. Download reference files
@@ -104,13 +104,13 @@ process_srr() {
     fasterq-dump --split-files --threads 3 --outdir "$TEMP_DIR" --temp "$TEMP_DIR" "${TEMP_DIR}/${srr}/${srr}.sra"
     
     echo "[$srr] Compressing raw files..."
-    pigz -p 3 "${TEMP_DIR}/${srr}".sra_*.fastq
+    pigz -p 3 "${TEMP_DIR}/${srr}"_*.fastq
     
     echo "[$srr] Copying raw files..."
-    cp "${TEMP_DIR}/${srr}".sra_*.fastq.gz "./input/raw/"
+    cp "${TEMP_DIR}/${srr}"_*.fastq.gz "./input/raw/"
     
     echo "[$srr] Downsampling to ${SUBSAMPLE_FRACTION}..."
-    for fastq_gz in "${TEMP_DIR}/${srr}".sra_*.fastq.gz; do
+    for fastq_gz in "${TEMP_DIR}/${srr}"_*.fastq.gz; do
         basename_file=$(basename "$fastq_gz")
         seqtk sample -s${SEED} "$fastq_gz" ${SUBSAMPLE_FRACTION} | gzip > "./input/downsampled/${basename_file}"
     done
@@ -161,8 +161,8 @@ echo "Setup Complete!"
 echo "=========================================="
 echo ""
 echo "Tools installed:"
-echo "  - SRA Toolkit: ~/sratoolkit.3.0.0-ubuntu64"
-echo "  - seqtk: ~/seqtk"
+echo "  - SRA Toolkit: ${SLURM_SUBMIT_DIR}/sratoolkit.3.0.0-ubuntu64"
+echo "  - seqtk: ${SLURM_SUBMIT_DIR}/seqtk"
 echo ""
 echo "Reference files downloaded:"
 echo "  - Transcriptome: reference/Homo_sapiens.GRCh38.cdna.all.fa.gz"

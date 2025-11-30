@@ -51,6 +51,10 @@ All analysis tools run in Singularity containers - no manual installation of bio
 - **DESeq2**: Differential expression analysis
 - **Base R**: Data manipulation and visualization
 
+### setup packages (downloaded during setup_and_download.sh)
+- **SRA Toolkit**: For downloading and converting SRA files
+- **seqtk**: For downsampling FASTQ files
+
 ## 4. Environment Setup
 
 ### Prerequisites

@@ -3,7 +3,10 @@ work/
 *.err
 *.out
 .nextflow/
-reference/*
+reference/
 *.log
 input_downsampled.csv
 input_raw.csv
+tmp_sra_download/
+sratoolkit.3.0.0-ubuntu64/
+seqtk/
