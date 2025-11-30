@@ -1,0 +1,10 @@
+Sample,R1,R2,Flare
+SRR33467998,input/SRR33467998.sra_1.fastq.gz,input/SRR33467998.sra_2.fastq.gz,1
+SRR33467999,input/SRR33467999.sra_1.fastq.gz,input/SRR33467999.sra_2.fastq.gz,1
+SRR33468000,input/SRR33468000.sra_1.fastq.gz,input/SRR33468000.sra_2.fastq.gz,1
+SRR33468001,input/SRR33468001.sra_1.fastq.gz,input/SRR33468001.sra_2.fastq.gz,1
+SRR33468002,input/SRR33468002.sra_1.fastq.gz,input/SRR33468002.sra_2.fastq.gz,1
+SRR33468003,input/SRR33468003.sra_1.fastq.gz,input/SRR33468003.sra_2.fastq.gz,0
+SRR33468004,input/SRR33468004.sra_1.fastq.gz,input/SRR33468004.sra_2.fastq.gz,0
+SRR33468005,input/SRR33468005.sra_1.fastq.gz,input/SRR33468005.sra_2.fastq.gz,0
+SRR33468006,input/SRR33468006.sra_1.fastq.gz,input/SRR33468006.sra_2.fastq.gz,0

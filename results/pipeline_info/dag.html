@@ -1,0 +1,99 @@
+<!--
+  ~ Copyright 2013-2024, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#B6ECE2',
+      'primaryTextColor': '#160F26',
+      'primaryBorderColor': '#065647',
+      'lineColor': '#545555',
+      'clusterBkg': '#BABCBD22',
+      'clusterBorder': '#DDDEDE',
+      'fontFamily': 'arial'
+    }
+  }
+}%%
+flowchart TB
+    subgraph " "
+    v0["Channel.fromPath"]
+    v4["Channel.fromPath"]
+    v6["Channel.fromPath"]
+    v15["Channel.fromPath"]
+    end
+    v3(["TRIM_READS"])
+    v5(["CREATE_TX2GENE"])
+    v7(["KALLISTO_INDEX"])
+    v9(["KALLISTO_QUANT"])
+    subgraph " "
+    v10[" "]
+    v14[" "]
+    v17[" "]
+    v18[" "]
+    v19[" "]
+    v20[" "]
+    v21[" "]
+    v31[" "]
+    v32[" "]
+    end
+    v13(["MERGE_KALLISTO"])
+    v16(["DIFFERENTIAL_EXPRESSION"])
+    v22(["FASTQC"])
+    v30(["MULTIQC"])
+    v1(( ))
+    v8(( ))
+    v11(( ))
+    v23(( ))
+    v0 --> v1
+    v1 --> v3
+    v3 --> v9
+    v3 --> v23
+    v4 --> v5
+    v5 --> v13
+    v6 --> v7
+    v7 --> v8
+    v8 --> v9
+    v9 --> v10
+    v9 --> v11
+    v9 --> v23
+    v11 --> v13
+    v13 --> v16
+    v13 --> v14
+    v15 --> v16
+    v16 --> v21
+    v16 --> v20
+    v16 --> v19
+    v16 --> v18
+    v16 --> v17
+    v1 --> v22
+    v22 --> v23
+    v23 --> v30
+    v30 --> v32
+    v30 --> v31
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, maxTextSize: Number.MAX_SAFE_INTEGER, maxEdges: Number.MAX_SAFE_INTEGER });
+</script>
+</body>
+</html>

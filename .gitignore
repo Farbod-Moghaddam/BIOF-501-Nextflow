@@ -1,0 +1,9 @@
+input/
+work/
+*.err
+*.out
+.nextflow/
+reference/*
+*.log
+input_downsampled.csv
+input_raw.csv
