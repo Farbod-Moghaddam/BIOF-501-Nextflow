@@ -3,7 +3,7 @@
 ## 1. Pipeline Overview
 
 ### Purpose
-This Nextflow pipeline performs RNA-seq data analysis for differential gene expression. The pipeline is optimized for speed using Kallisto pseudoalignment instead of traditional genome alignment, reducing runtime from hours to under 1 hour while maintaining accuracy for transcript quantification. It uses data from [Lupus nephritis serum induces changes in gene expression in human glomerular endothelial cells, which is modulated by L-sepiapterin: implications for redox-mediated endothelial dysfunction](https://pmc.ncbi.nlm.nih.gov/articles/PMC12161315/). This paper looked at differential expression for LN flare patients who used L-sepiapterin versus those who did not. They also had data for non-flare patients, and this pipeline focuses on comparing flare vs no-flare conditions. 
+This Nextflow pipeline performs RNA-seq data analysis for differential gene expression. The pipeline is optimized for speed using Kallisto pseudoalignment instead of traditional genome alignment, reducing runtime from hours to under 1 hour while maintaining accuracy for transcript quantification. It uses RNA sequencing data from [Lupus nephritis serum induces changes in gene expression in human glomerular endothelial cells, which is modulated by L-sepiapterin: implications for redox-mediated endothelial dysfunction](https://pmc.ncbi.nlm.nih.gov/articles/PMC12161315/). This paper looked at differential expression for LN flare patients who used L-sepiapterin versus those who did not. They also had data for non-flare patients, and this pipeline focuses on comparing flare vs no-flare conditions. 
 
 ### Pipeline Workflow
 
